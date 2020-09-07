@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="10d7fc74-d66d-4cb2-869e-348e10993cdc" name="https://github.com/JackLinkai/DataStructure-Algorithm.git" url="https://github.com/JackLinkai/DataStructure-Algorithm.git">
+        <fileTransfer port="0" accessType="LOCAL" />
+      </webServer>
+    </option>
+  </component>
+</project>
