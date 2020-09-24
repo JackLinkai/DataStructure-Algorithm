@@ -1,13 +1,17 @@
-package java.DataStructure.array;
+package java.datastructure.stack;
 
-public class MyArrayStack implements MyStack{
+/**
+ * @author LinKai
+ * @time 2020/9/14-21:49
+ */
+public class MyArrayStack<Item> implements MyStack<Item> {
     @Override
-    public MyStack push(Object o) {
+    public MyStack push(Item item) {
         return null;
     }
 
     @Override
-    public Object pop() {
+    public Item pop() {
         return null;
     }
 
