@@ -5,7 +5,7 @@ package java.datastructure.array;
  * @author LinKai
  * @time 2020/9/14-20:45
  */
-public class Solution2 {
+public class MyArray {
     /**
      * 数组长度
      */
@@ -30,7 +30,7 @@ public class Solution2 {
      * 数组初始化
      * @param size
      */
-    public Solution2(int size) {
+    public MyArray(int size) {
         this.size = size;
         data = new int[size];
         index = 0;

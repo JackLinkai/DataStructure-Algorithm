@@ -50,6 +50,7 @@
     }
     return true;
     ```
+    光判断是否为2的N次方，其时间复杂度就是O(logn)
 方法2：
 我们可以发现：
 |十进制  |二进制  |
@@ -75,11 +76,12 @@
         return true;
     return false;
     ```
+   时间复杂度为O(1)
 
 ## 数组和字符串
 https://leetcode-cn.com/explore/featured/card/array-and-string/
 数组是数据结构中的基本模块之一。因为字符串是由字符数组形成的，所以二者是相似的。大多数面试问题都属于这个范畴。
-我们在这一章的目标是：
+这一章的学习目标是：
 1. 理解数组的 基本概念 及其 操作方式；
 2. 理解 二维数组 的基本概念，熟悉二维数组的使用；
 3. 了解 字符串 的概念以及字符串所具有的不同特性；
@@ -188,8 +190,12 @@ a[3]:10001+(3-1)*typesize
 #### 例题1：
 给你一个文件里面包含全国人民（14亿）的年龄数据（0~180），现在要你统计每一个年龄有多少人？
 给定机器为 单台+2CPU+2G内存。不得使用现成的容器，比如map等。
+题解：先创建一个长度为181的数组data[181]，然后一行一行地读文件中的年龄age，将data[age]自加1，直到读完该文件为止
+https://github.com/JackLinkai/DataStructure-Algorithm/blob/master/src/java/datastructure/array/MyArray.java
+
 #### 例题2：
-设数组的长度为n，现在，如果我们需要将一个数据插入到数组中的第k个位置。删除第n个位置的数据.
+实现一个数组
+https://github.com/JackLinkai/DataStructure-Algorithm/blob/master/src/java/datastructure/array/Solution.java
 
 # 数组总结
 数组是存储同种类型元素的一组数据，最大的优点是下标和随机访问；缺点是插入和删除很慢，时间复杂度为O(n);
