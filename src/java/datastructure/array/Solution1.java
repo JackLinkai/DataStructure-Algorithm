@@ -7,7 +7,7 @@ import java.util.Random;
  * @author LinKai
  * @time 2020/9/14-21:04
  */
-public class Solution {
+public class Solution1 {
     /**
      * 文件位置
      */

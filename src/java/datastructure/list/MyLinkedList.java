@@ -109,10 +109,6 @@ public class MyLinkedList {
             cur = cur.next;
         }
     }
-
-    public static void main(String[] args) {
-
-    }
 }
 
 class ListNode {
