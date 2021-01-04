@@ -47,7 +47,8 @@ public class test1 {
                     break;
             }
         }
-        return brackets.isEmpty();
+        boolean empty = brackets.isEmpty();
+        return empty;
     }
 
     public static void main(String[] args) {
