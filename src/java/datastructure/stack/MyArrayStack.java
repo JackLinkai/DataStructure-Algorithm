@@ -1,5 +1,6 @@
 package java.datastructure.stack;
 
+
 import java.util.Objects;
 
 /**
@@ -11,27 +12,40 @@ public class MyArrayStack<Item> implements MyStack<Item> {
     private Item[] a = (Item[]) new Object[1];
 
     /**
-     * 大小
+     * 初始的元素个数
      */
     private int n = 0;
 
+    public MyArrayStack(int cup) {
+        a = (Item[]) new Object[cup];
+    }
 
+    /**
+     * 入栈
+     *
+     * @param item
+     * @return
+     */
     @Override
     public MyStack push(Item item) {
+        judgeSize();
+        a[n++] = item;
         return null;
     }
 
     /**
-     *
+     * 扩容规则
      */
     private void judgeSize() {
-        if (a.length <= n) {
+        if (n >= a.length) {
             resize(a.length << 1);
+        } else if (n > 0 && n <= a.length / 2) {
+            resize(a.length / 2);
         }
     }
 
     /**
-     * 扩容
+     * 扩容操作
      *
      * @param size
      */
@@ -40,22 +54,44 @@ public class MyArrayStack<Item> implements MyStack<Item> {
         for (int i = 0; i < n; i++) {
             temp[i] = a[i];
         }
-
+        a = temp;
     }
 
+    /**
+     * 出栈
+     *
+     * @return
+     */
     @Override
     public Item pop() {
-        return null;
+        if (isEmpty()) {
+            return null;
+        }
+        //n是个数，且前面是n++，所以应该先自减才可以定位到出栈的位置进行出栈，所以是--n
+        Item item = a[--n];
+        // 释放空间
+        a[n] = null;
+        return item;
     }
 
+    /**
+     * 大小
+     *
+     * @return
+     */
     @Override
     public int size() {
-        return 0;
+        return n;
     }
 
+    /**
+     * 是否为空
+     *
+     * @return
+     */
     @Override
     public boolean isEmpty() {
-        return false;
+        return n == 0 ? true : false;
     }
 
 }

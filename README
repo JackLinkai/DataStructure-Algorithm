@@ -286,3 +286,4 @@ loc(a[i][j](0<=i<n,0<=j<m))=init_loc+(i*m+j)*typesize
 
 ## 设计浏览器的前进后退功能
 两个栈
+
