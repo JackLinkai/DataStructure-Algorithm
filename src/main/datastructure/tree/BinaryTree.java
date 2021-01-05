@@ -1,4 +1,4 @@
-package java.datastructure.tree;
+package main.datastructure.tree;
 
 /**
  * @author: LinKai

@@ -1,4 +1,4 @@
-package java.datastructure.stack;
+package main.datastructure.stack;
 
 
 import java.util.Objects;
@@ -9,6 +9,11 @@ import java.util.Objects;
  */
 public class MyArrayStack<Item> implements MyStack<Item> {
 
+    /**
+     * 扩容缩容倍数
+     */
+    private static final int EXPANSION = 2;
+
     private Item[] a = (Item[]) new Object[1];
 
     /**
@@ -18,6 +23,9 @@ public class MyArrayStack<Item> implements MyStack<Item> {
 
     public MyArrayStack(int cup) {
         a = (Item[]) new Object[cup];
+    }
+
+    public MyArrayStack() {
     }
 
     /**
@@ -38,9 +46,9 @@ public class MyArrayStack<Item> implements MyStack<Item> {
      */
     private void judgeSize() {
         if (n >= a.length) {
-            resize(a.length << 1);
-        } else if (n > 0 && n <= a.length / 2) {
-            resize(a.length / 2);
+            resize(a.length * EXPANSION);
+        } else if (n > 0 && n <= a.length / EXPANSION) {
+            resize(a.length / EXPANSION);
         }
     }
 
@@ -50,7 +58,7 @@ public class MyArrayStack<Item> implements MyStack<Item> {
      * @param size
      */
     private void resize(int size) {
-        Item[] temp = (Item[]) new Objects[size];
+        Item[] temp = (Item[]) new Object[size];
         for (int i = 0; i < n; i++) {
             temp[i] = a[i];
         }

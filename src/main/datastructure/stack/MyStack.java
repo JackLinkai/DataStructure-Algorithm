@@ -1,4 +1,4 @@
-package java.datastructure.stack;
+package main.datastructure.stack;
 
 /**
  * @author LinKai
@@ -8,6 +8,7 @@ public interface MyStack<Item> {
 
     /**
      * 入栈
+     *
      * @param item
      * @return
      */
@@ -15,18 +16,21 @@ public interface MyStack<Item> {
 
     /**
      * 出栈
+     *
      * @return
      */
     Item pop();
 
     /**
      * 大小
+     *
      * @return
      */
     int size();
 
     /**
      * 判空
+     *
      * @return
      */
     boolean isEmpty();

@@ -1,4 +1,4 @@
-package java.datastructure.array;
+package main.datastructure.array;
 
 import java.io.*;
 import java.util.Random;
@@ -7,7 +7,7 @@ import java.util.Random;
  * @author LinKai
  * @time 2020/9/14-21:04
  */
-public class test1 {
+public class Test1 {
     /**
      * 文件位置
      */

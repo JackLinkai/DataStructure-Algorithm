@@ -1,4 +1,4 @@
-package java.datastructure.stack;
+package main.datastructure.stack;
 
 import java.util.Scanner;
 
@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @time: 2021/1/4-20:57
  */
 
-public class test1 {
+public class Test1 {
     public static boolean isok(String s) {
         MyStack<Character> brackets = new MyArrayStack<Character>(20);
         char[] c = s.toCharArray();
@@ -20,27 +20,33 @@ public class test1 {
                     brackets.push(x);
                     break;
                 case '}':
-                    top=brackets.pop();
-                    if (top==null) return false;
-                    if(top=='{'){
+                    top = brackets.pop();
+                    if (top == null) {
+                        return false;
+                    }
+                    if (top == '{') {
                         break;
-                    }else{
+                    } else {
                         return false;
                     }
                 case ')':
-                    top=brackets.pop();
-                    if (top==null) return false;
-                    if(top==')'){
+                    top = brackets.pop();
+                    if (top == null) {
+                        return false;
+                    }
+                    if (top == '(') {
                         break;
-                    }else{
+                    } else {
                         return false;
                     }
                 case ']':
-                    top=brackets.pop();
-                    if (top==null) return false;
-                    if(top==']'){
+                    top = brackets.pop();
+                    if (top == null) {
+                        return false;
+                    }
+                    if (top == '[') {
                         break;
-                    }else{
+                    } else {
                         return false;
                     }
                 default:
@@ -52,10 +58,11 @@ public class test1 {
     }
 
     public static void main(String[] args) {
-        Scanner scanner=new Scanner(System.in);
-        while (scanner.hasNext()){
-            String s=scanner.next();
-            System.out.println("s的匹配结果："+isok(s));
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()) {
+            String s = scanner.next();
+            System.out.println(s);
+            System.out.println("s的匹配结果：" + isok(s));
         }
     }
 }

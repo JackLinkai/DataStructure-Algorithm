@@ -1,4 +1,4 @@
-package java.datastructure.list;
+package main.datastructure.list;
 
 /**
  * 单向链表

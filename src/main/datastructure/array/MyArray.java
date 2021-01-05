@@ -1,4 +1,4 @@
-package java.datastructure.array;
+package main.datastructure.array;
 
 /**
  * 实现一个数组
