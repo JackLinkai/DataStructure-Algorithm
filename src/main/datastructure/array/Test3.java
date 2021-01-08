@@ -34,19 +34,23 @@ public class Test3 {
         int x = nums[0].length;
         int y = nums.length;
         int i;
-        int j=0;
-        // 从左下角开始
-        for (i=y-1;i>=0;i--){
-            // 往右开始遍历
-            while (j<x){
-                // 相等则找到，返回true
-                if(n==nums[i][j]){
-                    return true;
-                }else if(n<nums[i][j]){
-                    // 如果n的值小，则没有必要继续往右找，直接退出往上开始遍历
-                    break;
+        int j = 0;
+
+        // 如果数组不为空
+        if (nums != null && x > 0 && y > 0) {
+            // 从左下角开始
+            for (i = y - 1; i >= 0; i--) {
+                // 往右开始遍历
+                while (j < x) {
+                    // 相等则找到，返回true
+                    if (n == nums[i][j]) {
+                        return true;
+                    } else if (n < nums[i][j]) {
+                        // 如果n的值小，则没有必要继续往右找，直接退出往上开始遍历
+                        break;
+                    }
+                    j++;
                 }
-                j++;
             }
         }
         return false;
@@ -54,6 +58,7 @@ public class Test3 {
 
     /**
      * 试试从右上角开始
+     *
      * @param nums
      * @param n
      * @return
@@ -62,19 +67,22 @@ public class Test3 {
         int x = nums[0].length;
         int y = nums.length;
         int i;
-        int j=x-1;
-        // 从右上角开始
-        for (i=0;i<y;i++){
-            // 往左开始遍历
-            while (j>=0){
-                // 相等则找到，返回true
-                if(n==nums[i][j]){
-                    return true;
-                }else if(n>nums[i][j]){
-                    // 如果n的值大，则没有必要继续往左找，直接退出往下开始遍历
-                    break;
+        int j = x - 1;
+        // 如果数组不为空
+        if (nums != null && x > 0 && y > 0) {
+            // 从右上角开始
+            for (i = 0; i < y; i++) {
+                // 往左开始遍历
+                while (j >= 0) {
+                    // 相等则找到，返回true
+                    if (n == nums[i][j]) {
+                        return true;
+                    } else if (n > nums[i][j]) {
+                        // 如果n的值大，则没有必要继续往左找，直接退出往下开始遍历
+                        break;
+                    }
+                    j--;
                 }
-                j--;
             }
         }
         return false;
@@ -87,6 +95,6 @@ public class Test3 {
                 {4, 8, 10, 13},
                 {6, 9, 11, 15}
         };
-        System.out.println(find1(nums,8));
+        System.out.println(find1(nums, 8));
     }
 }
