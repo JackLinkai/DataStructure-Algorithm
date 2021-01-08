@@ -1,7 +1,5 @@
 package main.datastructure.array;
 
-import com.sun.org.apache.bcel.internal.generic.DUP;
-
 /**
  * 找出数组中重复的数字：
  * 在一个长度为n的数组里的所有数字都在0~n-1范围内。
@@ -26,7 +24,9 @@ public class Test2 {
      * 是则继续扫描下一个数字，
      * 不是则与位置m的数字进行比较，
      * 相同，找到一个重复数字，
-     * 不同，交换，继续扫描下一个数字。
+     * 不同，交换，重新扫描这个个数字。
+     *
+     * 时间复杂度O(n),空间复杂度O(1)
      *
      * @param nums
      * @param n
@@ -47,33 +47,26 @@ public class Test2 {
             }
         }
 
-        i = 0;
-        int m;
         int t;
-        while (i < n) {
-            // m不等于i
-            if (i != nums[i]) {
-                m = nums[i];
+
+        for (i = 0;i < n;++i) {
+            // 数字m不等于i，执行操作直到等于i
+            while (i!=nums[i]){
                 // 相同
-                if (m == nums[m]) {
+                if (nums[i] == nums[nums[i]]) {
                     // 找到一个重复数字
-                    return m;
-                } else {
-                    // 交换数字时要先将m的值给nums[m],才可以把nums[m]的值给m
-                    t = nums[m];
-                    nums[m] = m;
-                    m = t;
+                    return nums[i];
                 }
-            }
-            if (i == nums[i]) {
-                i++;
+                t = nums[i];
+                nums[i] = nums[t];
+                nums[t] = t;
             }
         }
         return -1;
     }
 
     public static void main(String[] args) {
-        int[] nums = {2, 3, 1, 0, 2, 5, 3};//132 1023
+        int[] nums = {6, 3, 1, 0, 2, 5, 3};
         int n = 7;
         System.out.println(duplicate(nums, n));
     }
