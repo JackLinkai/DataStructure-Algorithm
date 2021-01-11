@@ -47,7 +47,7 @@ public class MyArrayStack<Item> implements MyStack<Item> {
     private void judgeSize() {
         if (n >= a.length) {
             resize(a.length * EXPANSION);
-        } else if (n > 0 && n <= a.length / EXPANSION) {
+        } else if (n > 0 && n < a.length / EXPANSION) {
             resize(a.length / EXPANSION);
         }
     }
