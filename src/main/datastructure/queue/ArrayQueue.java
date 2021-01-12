@@ -15,7 +15,7 @@ public class ArrayQueue {
     // 总容量
     private int n;
     // 已经使用的空间
-    private int size;
+    private int size = 0;
 
     public ArrayQueue(int cup) {
         queue = new int[cup];
@@ -38,6 +38,8 @@ public class ArrayQueue {
         }
         // 数据先入队然后指针向后移动一位
         queue[tail++] = element;
+        // 已使用的空间数加一
+        size++;
     }
 
     /**
@@ -61,6 +63,8 @@ public class ArrayQueue {
         int element = queue[head];
         // 头部指针向后移动一位
         head++;
+        // 已使用的空间减一
+        size--;
         // 返回原来的队列头
         return element;
     }
