@@ -77,3 +77,8 @@
     return false;
     ```
    时间复杂度为O(1)
+
+数组和字符串：https://github.com/JackLinkai/DataStructure-Algorithm/blob/master/数组和字符串.md
+链表：https://github.com/JackLinkai/DataStructure-Algorithm/blob/master/链表.md
+栈:https://github.com/JackLinkai/DataStructure-Algorithm/blob/master/栈.md
+队列：https://github.com/JackLinkai/DataStructure-Algorithm/blob/master/队列.md
