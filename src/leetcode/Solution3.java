@@ -1,5 +1,9 @@
 package leetcode;
 
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /**
  * 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
  * <p>
@@ -32,19 +36,60 @@ package leetcode;
  */
 
 public class Solution3 {
+    public static void main(String[] args) {
+        Solution3 solution3 = new Solution3();
+        int nums = solution3.lengthOfLongestSubstring("wobgrovw");
+        System.out.println(nums);
+    }
+
     /**
      * 思路：滑动窗口
      * 如果字符串为空，返回0，否则
      * 1. 创建一个窗口map，key为字符，value为下标
-     * 2. 把字符数组第一个字符添加到map中
-     * 3. 依次遍历字符数组，如果遍历到的字符在map中，删掉map中第一个元素，直到该字符不存在map中
-     * 4. 如果遍历到的字符不在map中，将其添加到map中
+     * 2. 创建一个数max，记录最大值
+     * 3. 把字符数组第一个字符添加到map中
+     * 4. 依次遍历字符数组
+     * 5. 如果遍历到的字符在map中，删掉map中第一个元素，直到该字符不存在map中
+     * 6. 如果遍历到的字符不在map中，将其添加到map中
+     * 7. 将目前最长字串的长度保存在max中
+     * 心得总结：
+     * 执行用时：12 ms, 在所有 Java 提交中击败了26.72%的用户
+     * 内存消耗：9.1 MB, 在所有 Java 提交中击败了14.21%的用户
+     * 代码可以说真的是很不行了，对于基本的api，也发现忘记了很多，从10点半有思路开始尝试到2点总算完成
+     * 最主要是居然没有想到加一个max记录所出现的最长字串长度，这一点我要用心了
+     *
      * @param s
      * @return
      */
     public int lengthOfLongestSubstring(String s) {
-        if (s!=null){
+        int len = s.length();
+        if (len < 2) {
+            return len;
+        } else if (s != null) {
+            char[] string = s.toCharArray();
 
+            // 1. 创建一个窗口map，key为字符，value为下标
+            Map<Character, Integer> map = new LinkedHashMap<>(len);
+            // 2. 创建一个数max，记录最大值
+            int max = 0;
+            // 3. 把字符数组第一个字符添加到map中
+            map.put(string[0], 0);
+            // 4. 依次遍历字符数组
+            for (int i = 1; i < len; i++) {
+                // 5. 如果遍历到的字符在map中
+                if (map.containsKey(string[i])) {
+                    for (Iterator<Map.Entry<Character, Integer>> it = map.entrySet().iterator(); it.hasNext() && map.containsKey(string[i]); ) {
+                        Map.Entry<Character, Integer> item = it.next();
+                        // 删掉map中第一个元素，直到该字符不存在map中
+                        it.remove();
+                    }
+                }
+                // 6. 如果遍历到的字符不在map中，将其添加到map中
+                map.put(string[i], i);
+                //7. 将目前最长字串的长度保存在max中
+                max = map.size() > max ? map.size() : max;
+            }
+            return max;
         }
         return 0;
     }
