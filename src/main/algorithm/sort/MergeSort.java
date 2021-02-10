@@ -37,6 +37,16 @@ public class MergeSort {
         }
     }
 
+    /**
+     * 并的过程：
+     * 1. 遍历左右两部分数组，把当前较小的元素放入临时数组中
+     * 2. 遍历结束后，注意把左右两数组剩下的排好序但没有放入临时数组的元素放入临时数组中
+     *
+     * @param data
+     * @param left
+     * @param mid
+     * @param right
+     */
     public static void merge(int[] data, int left, int mid, int right) {
         // 借助临时数组用来保存数组
         int[] temp = new int[data.length];
