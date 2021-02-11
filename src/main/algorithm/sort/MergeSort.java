@@ -39,8 +39,12 @@ public class MergeSort {
 
     /**
      * 并的过程：
-     * 1. 遍历左右两部分数组，把当前较小的元素放入临时数组中
-     * 2. 遍历结束后，注意把左右两数组剩下的排好序但没有放入临时数组的元素放入临时数组中
+     * 1. 遍历左右两部分数组，把当前较小的元素放入数组中
+     * 2. 遍历过程中执行四个判断：首先需要执行边界判断，否则可能出现越界报错情况
+     * a. 如果左部分的指针越界大于mid了，则说明右部分还有排好序的元素需要保存到数组
+     * b. 如果右部分的指针越界大于right了，则说明左部分还有排好序的元素需要保存到数组
+     * c. 如果左指针指向的元素不比右指针大，则将左指针指向的元素保存到数组中
+     * d. 如果右指针指向的元素比左指针小，则将右指针指向的元素保存到数组中
      *
      * @param data
      * @param left
@@ -51,33 +55,25 @@ public class MergeSort {
         // 借助临时数组用来保存数组
         int[] temp = new int[data.length];
 
-        // 左部分数组的第一个数字的指针
-        int point1 = left;
-        //右部分数组的第一个数字的指针
-        int point2 = mid + 1;
-
-        // 当前要保存到的临时数组的位置
-        int loc = left;
-
-        // 遍历左右两部分数组，将比较小的数依次排好顺序保存到临时数组中
-        while (point1 <= mid && point2 <= right) {
-            if (data[point1] < data[point2]) {
-                temp[loc++] = data[point1++];
-            } else {
-                temp[loc++] = data[point2++];
-            }
-        }
-        // 然后将左右两部分剩下的数字保存到临时数组中
-        while (point1 <= mid) {
-            temp[loc++] = data[point1++];
-        }
-        while (point2 <= right) {
-            temp[loc++] = data[point2++];
-        }
-
-        // 最后将临时数组排好序的结果保存到原数组
+        // 先把所有元素复制到临时数组中
         for (int i = left; i <= right; i++) {
-            data[i] = temp[i];
+            temp[i] = data[i];
+        }
+
+        // 左部分数组的第一个数字的指针和右部分数组的第一个数字的指针
+        int point1 = left, point2 = mid + 1;
+
+        // 执行数组合并
+        for (int i = left; i <= right; i++) {
+            if (point1 > mid) {
+                data[i] = temp[point2++];
+            } else if (point2 > right) {
+                data[i] = temp[point1++];
+            } else if (point2 > point1) {
+                data[i] = temp[point1++];
+            } else if (point2 < point1) {
+                data[i] = temp[point2++];
+            }
         }
     }
 }
