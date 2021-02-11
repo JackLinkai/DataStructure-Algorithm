@@ -52,11 +52,13 @@ public class MergeSort {
      * @param right
      */
     public static void merge(int[] data, int left, int mid, int right) {
+        int i;
+
         // 借助临时数组用来保存数组
         int[] temp = new int[data.length];
 
         // 先把所有元素复制到临时数组中
-        for (int i = left; i <= right; i++) {
+        for (i = left; i <= right; i++) {
             temp[i] = data[i];
         }
 
@@ -64,14 +66,14 @@ public class MergeSort {
         int point1 = left, point2 = mid + 1;
 
         // 执行数组合并
-        for (int i = left; i <= right; i++) {
+        for (i = left; i <= right; i++) {
             if (point1 > mid) {
                 data[i] = temp[point2++];
             } else if (point2 > right) {
                 data[i] = temp[point1++];
-            } else if (point2 > point1) {
+            } else if (temp[point2] > temp[point1]) {
                 data[i] = temp[point1++];
-            } else if (point2 < point1) {
+            } else {
                 data[i] = temp[point2++];
             }
         }
