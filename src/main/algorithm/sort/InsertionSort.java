@@ -30,21 +30,23 @@ public class InsertionSort {
      * @return
      */
     private static int[] sort(int[] a, int n) {
+        // 临时变量t
+        int t;
         // 两层循环
         // i从1开始是因为第一个不用排序，我们把数组从i分开，0-i部分已经排好序
         for (int i = 1; i < n; i++) {
-            int data = a[i];
+            t = a[i];
             int j = i - 1;
             // 从尾到头进行比较
             for (; j >= 0; j--) {
                 // 如果这个数大，就往后移，直到到达data正确的位置
-                if (a[j] > data) {
+                if (a[j] > t) {
                     a[j + 1] = a[j];
                 } else {
                     break;
                 }
             }
-            a[j + 1] = data;
+            a[j + 1] = t;
         }
         return a;
     }
