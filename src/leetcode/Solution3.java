@@ -91,7 +91,7 @@ public class Solution3 {
                     win.add(s.charAt(++right));
                 }
                 // 每次右指针停止向右移动的时候，先将max与窗口的长度比较，大的保存在max中
-                max = max > win.size() ? max : win.size();
+                max = Math.max(max, win.size());
 
                 // 将左端指针往后移动一位
                 if (left != 0) {
