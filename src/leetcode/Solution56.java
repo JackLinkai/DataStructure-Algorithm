@@ -1,5 +1,9 @@
 package leetcode;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+
 /**
  * 以数组 intervals 表示若干个区间的集合，
  * 其中单个区间为 intervals[i] = [starti, endi]
@@ -25,8 +29,51 @@ package leetcode;
  * @time 2021/02/16-13:19:00
  */
 public class Solution56 {
+    /**
+     * 思路：
+     * 1. 先对输入数组按照区间左边的值进行升序排列
+     * 2. 初始化一个变量 outputs，用于存储合并之后区间结果的动态数组
+     * 3. 遍历排序后的所有区间，针对每个区间做如下的处理：
+     * 3.a. 如果当前处理的区间是第一个区间的话，那么直接将区间加入到 outputs
+     * 3.b. 比较当前处理区间左边的值 (currLeft) 和 outputs 中最后一个区间右边的值 (outputsLastRight) ：
+     * 3.b.I. 如果 outputsLastRight < currLeft，说明没有重叠，那么直接将当前处理的区间加入到 outputs
+     * 3.b.II. 否则，说明有重叠，那么将 outputs 中最后一个区间的右边的值更新为：当前处理区间右边值和 outputsLastRight 的最大值
+     * @param intervals
+     * @return
+     */
     public int[][] merge(int[][] intervals) {
-        int n=intervals.length;
-        return intervals;
+        // 1. 先对输入数组按照区间左边的值进行升序排列
+        Arrays.sort(intervals, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                // 表示按照第一列进行排序
+                // 正数表示先o2再o1
+                // 负数表示先o1再o2
+                return o1[0]-o2[0];
+            }
+        });
+
+        // 2. 初始化一个变量 outputs，用于存储合并之后区间结果的动态数组
+        ArrayList<int[]> outputs = new ArrayList<>();
+
+        // 3. 遍历排序后的所有区间，针对每个区间做如下的处理：
+        // 3.a. 如果当前处理的区间是第一个区间的话，那么直接将区间加入到 outputs
+        outputs.add(intervals[0]);
+        int n = intervals.length;
+        for (int i=1;i<n;i++){
+            // 3.b. 比较当前处理区间左边的值 (currLeft) 和 outputs 中最后一个区间右边的值 (outputsLastRight) ：
+            int currLeft = intervals[i][0];
+            int[] outputsLast = outputs.get(outputs.size()-1);
+            int outputsLastRight=outputsLast[1];
+            // 3.b.I. 如果 outputsLastRight < currLeft，说明没有重叠，那么直接将当前处理的区间加入到 outputs
+            if (outputsLastRight < currLeft){
+                outputs.add(intervals[i]);
+            }else{
+                // 3.b.II. 否则，说明有重叠，那么将 outputs 中最后一个区间的右边的值更新为：当前处理区间右边值和 outputsLastRight 的最大值
+                int currRight = intervals[i][1];
+                outputsLast[1]=Math.max(currRight,outputsLastRight);
+            }
+        }
+        return outputs.toArray(new int[outputs.size()][]);
     }
 }
