@@ -27,7 +27,8 @@ public class SelectSort {
    */
   private static void sort(int[] data) {
     // 数组长度n，保存最小数的小标值min，中间变量temp
-    int n = data.length, min, temp;
+    // int temp;
+    int n = data.length, min;
 
     // 进行n-1次排序，因为最后一个元素不用比较了
     for (int i = 0; i < n - 1; i++) {
@@ -35,14 +36,23 @@ public class SelectSort {
       // 遍历未排序的部分
       for (int j = i + 1; j < n; j++) {
         // 使用min标记最小的元素的下标
-        if (data[min] > data[j]) {
+        if (data[j] < data[min]) {
           min = j;
         }
       }
-      // 把未排序的最小的元素与排好序的最后一个元素交换
-      temp = data[i];
-      data[i] = data[min];
-      data[min] = temp;
+      if (min != i) {
+        // 把未排序的最小的元素与排好序的最后一个元素交换
+        /**
+         * 原来需要借助临时变量完成data[i]和data[min]的交换
+         * temp = data[i];
+         * data[i] = data[min];
+         * data[min] = temp;
+         */
+        //优化为加减法完成交换
+        data[i] = data[i] + data[min];
+        data[min] = data[i] - data[min];
+        data[i] = data[i] - data[min];
+      }
     }
   }
 }

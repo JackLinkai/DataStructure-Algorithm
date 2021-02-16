@@ -37,7 +37,7 @@ public class HillSort {
         int t;
         // 1. 定义一个增量add=n/2，并按照增量分组，随后增量递减直至为1
         for (int add = n / 2; add >= 1; add /= 2) {
-            // 2. 从下标add开始，分出n-add组第一组最后的数为a[add]，第二组最后的数为a[add+1]……
+            // 2. 从下标add开始，分出n-add组，第一组最后的数为a[add]，第二组最后的数为a[add+1]……
             for (int i = add; i < n; i++) {
                 t = a[i];
                 // 3. 同插入排序，向前遍历所在组内的前一个数i-add

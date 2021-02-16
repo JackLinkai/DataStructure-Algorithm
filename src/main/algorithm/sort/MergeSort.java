@@ -71,7 +71,7 @@ public class MergeSort {
                 data[i] = temp[point2++];
             } else if (point2 > right) {
                 data[i] = temp[point1++];
-            } else if (temp[point2] > temp[point1]) {
+            } else if (temp[point1] <= temp[point2]) {
                 data[i] = temp[point1++];
             } else {
                 data[i] = temp[point2++];
