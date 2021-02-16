@@ -38,6 +38,8 @@ public class Solution561 {
      * 而天然排好序的数组则可以满足以上这一点。
      * 因为排序不需要稳定性，且数组长度过大，
      * 所以选择快速排序。
+     * 也可以使用jdk提供的排序Arrays.sort(nums);
+     *
      * 执行用时： 16 ms , 在所有 Java 提交中击败了 12.92% 的用户
      * 内存消耗： 40.7 MB , 在所有 Java 提交中击败了 24.85% 的用户
      *
@@ -46,9 +48,13 @@ public class Solution561 {
      */
     public static int arrayPairSum(int[] nums) {
         int n = nums.length, sum = 0;
+        // 也可以不用自己实现排序，直接用jdk提供的就行
+        // Arrays.sort(nums);
         sort(nums, 0, n - 1);
         for (int i = 0; i < n; i += 2) {
-            sum += Math.min(nums[i], nums[i + 1]);
+            // sum += Math.min(nums[i], nums[i + 1]);
+            // 人傻了，最小的就是前面那个啊
+            sum += nums[i];
         }
         return sum;
     }
