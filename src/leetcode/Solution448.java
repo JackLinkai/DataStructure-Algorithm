@@ -15,7 +15,7 @@ import java.util.List;
  * @author LinKai
  * @time 2021/02/13-09:38:00
  */
-public class Solution488 {
+public class Solution448 {
 
     public static void main(String[] args) {
         int[] nums = {4, 3, 2, 7, 8, 2, 3, 1};
