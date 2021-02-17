@@ -11,6 +11,11 @@ import java.util.Arrays;
 
 public class MergeSort {
 
+    /**
+    临时数组在方法外开辟，不然每一次merge都要开数组
+     */
+    private static int[] temp;
+
     public static void main(String[] args) {
         int[] data = {5, 6, 2, 8, 3, 9, 0, 5};
         mergeSort(data, 0, data.length - 1);
@@ -55,7 +60,9 @@ public class MergeSort {
         int i;
 
         // 借助临时数组用来保存数组
-        int[] temp = new int[data.length];
+        // int[] temp = new int[data.length];
+        // 临时数组在方法外开辟，不然每一次merge都要开数组
+        temp = new int[data.length];
 
         // 先把所有元素复制到临时数组中
         for (i = left; i <= right; i++) {
