@@ -25,9 +25,12 @@ public class Solution1052 {
 
     /**
      * 思路：滑动窗口
-     * 老板是连续X分钟保持冷静
-     * 执行用时：616 ms, 在所有 Java 提交中击败了7.73%的用户
-     * 内存消耗：41.1 MB, 在所有 Java 提交中击败了14.83%的用户
+     * 老板是连续X分钟保持冷静，我们可以借助数组做一个有X长度的窗口
+     * 1. 从X-1开始遍历，计算当前窗口挽回的用户数
+     * 2. 使用变量max获得最大的挽回用户数
+     * 3. 再算出原来满意的用户，相加就是最大的用户满意数
+     * 执行用时：207 ms, 在所有 Java 提交中击败了12.01%的用户
+     * 内存消耗：40.8 MB, 在所有 Java 提交中击败了73.97%的用户
      *
      * @param customers
      * @param grumpy
@@ -35,18 +38,13 @@ public class Solution1052 {
      * @return
      */
     public int maxSatisfied(int[] customers, int[] grumpy, int X) {
-        int max = 0, max_i = 0, count;
+        int max = 0, count;
         for (int i = X - 1; i < customers.length; i++) {
             count = 0;
             for (int j = 0; j < X; j++) {
-                if (grumpy[i - j] == 1) {
-                    count += customers[i - j];
-                }
+                count += customers[i - j] * grumpy[i - j];
             }
-            if (count > max) {
-                max_i = i;
-                max = count;
-            }
+            max = Math.max(count, max);
         }
         for (int k = 0; k < customers.length; k++) {
             if (grumpy[k] == 0) {
