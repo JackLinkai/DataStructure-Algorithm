@@ -23,11 +23,11 @@ public class Test1 {
 
     public static void main(String[] args) {
         CycleLinkedList c = new CycleLinkedList();
-        for (int i = 7; i > 0; i--) {
+        for (int i = 6; i > 0; i--) {
 
             c.add(i);
         }
-        int x = c.delect(6);
+        int x = c.delect(5);
         System.out.println(x);
     }
 }
@@ -82,7 +82,7 @@ class CycleLinkedList {
                     tail = tail.next;
                 }
                 delect.next = delect.next.next;
-                // 重现标记头节点
+                // 重新标记头节点
                 head = tail.next;
                 // 重新开始报数
                 i = 0;
