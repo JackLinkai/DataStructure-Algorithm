@@ -42,14 +42,13 @@ public class Solution5 {
      * 这是因为它的首尾两个字母都是“a”。
      * 根据这样的思路，我们就可以用动态规划的方法解决本题。
      *
-     *
      * @param s
      * @return
      */
     public static String longestPalindrome(String s) {
         char[] str = s.toCharArray();
         String string = "";
-        int n = s.length(),max=0;
+        int n = s.length(), max = 0;
         for (int i = 0; i < n; i++) {
             for (int j = n - 1; j > i; j--) {
                 if (str[i] == str[j]) {

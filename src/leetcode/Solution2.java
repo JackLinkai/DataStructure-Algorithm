@@ -44,7 +44,7 @@ public class Solution2 {
         tail = head;
 
         // 声明当前l1、l2节点的值以及二者之和及进位数
-        int var1,var2,sum,carry=0;
+        int var1, var2, sum, carry = 0;
 
         // 当两个链表还没有完结或者进位数不为0时
         while (l1 != null || l2 != null || carry != 0) {

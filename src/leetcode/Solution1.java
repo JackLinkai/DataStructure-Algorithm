@@ -81,16 +81,16 @@ public class Solution1 {
     public static int[] twoSum_2(int[] nums, int target) {
         int len = nums.length;
         // 初始化一个hash表
-        Map<Integer,Integer> hashMap = new HashMap<>(len-1);
+        Map<Integer, Integer> hashMap = new HashMap<>(len - 1);
         // 先把第一个值保存在hash表中
-        hashMap.put(nums[0],0);
+        hashMap.put(nums[0], 0);
         // 遍历
-        for (int i = 1;i<len;i++){
-            int other =target-nums[i];
-            if (hashMap.containsKey(other)){
-                return new int[]{hashMap.get(other),i};
+        for (int i = 1; i < len; i++) {
+            int other = target - nums[i];
+            if (hashMap.containsKey(other)) {
+                return new int[]{hashMap.get(other), i};
             }
-            hashMap.put(nums[i],i);
+            hashMap.put(nums[i], i);
         }
         return new int[0];
     }

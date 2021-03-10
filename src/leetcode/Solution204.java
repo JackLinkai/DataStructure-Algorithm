@@ -58,6 +58,7 @@ public class Solution204 {
      * 1. 由思路1我们可以发现，在标记非质数时可能重复标记，如12，既被2标记又被3标记
      * 2. 因此我们可以多维护一个数据存储当前得到的质数。我们从小到大遍历，如果当前是质数，加入该数组中
      * 3.
+     *
      * @param n
      * @return
      */
@@ -85,15 +86,11 @@ public class Solution204 {
     }
 
 
-
-
-
-
-
     static boolean[] primes;
     static int[] primesInt;
     static int pos;
     static int end;
+
     static {
         int n = 5 * 1000000;
         primes = new boolean[n >> 1];
@@ -103,6 +100,7 @@ public class Solution204 {
         primesInt = new int[500000];
         pos = 0;
     }
+
     public int countPrimes(int n) {
         if (n <= 2) {
             return 0;
@@ -142,7 +140,7 @@ public class Solution204 {
             int nextCheck = (limit & 0x1) == 1 ? limit + 2 : limit + 1;
             nextCheck = Math.max(nextCheck, end + 2);
             // 把计算出的新范围的数放入素数数组
-            for (int i = nextCheck ; i < n; i += 2) {
+            for (int i = nextCheck; i < n; i += 2) {
                 if (!primes[i >> 1]) {
                     primesInt[pos++] = i;
                 }
