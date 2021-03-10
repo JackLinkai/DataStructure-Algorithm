@@ -28,5 +28,14 @@ public class ShoppingCart {
             }
         }
         System.out.println(dp[n][m]);
+        System.out.println("具体的物品：");
+        for (int i=n;i>0;i--){
+            if(dp[i][m]==dp[i-1][m]){
+
+            }else{
+                System.out.println("商品"+i+":"+cart[i-1]);
+                m=m-cart[i-1];
+            }
+        }
     }
 }
