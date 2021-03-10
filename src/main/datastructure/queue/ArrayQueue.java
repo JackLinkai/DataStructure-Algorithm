@@ -7,13 +7,13 @@ package main.datastructure.queue;
 
 public class ArrayQueue {
     // 存储数据的数组
-    private int[] queue;
+    private final int[] queue;
     // 头部指针
     private int head = 0;
     // 尾部指针
     private int tail = 0;
     // 总容量
-    private int n;
+    private final int n;
     // 已经使用的空间
     private int size = 0;
 
@@ -71,9 +71,6 @@ public class ArrayQueue {
 
     public boolean isEmpty() {
         // 如果头部指针移动到和尾部指针一个位置，说明队列为空
-        if (head == tail) {
-            return true;
-        }
-        return false;
+        return head == tail;
     }
 }

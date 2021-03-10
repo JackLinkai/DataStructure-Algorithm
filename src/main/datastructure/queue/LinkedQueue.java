@@ -1,7 +1,5 @@
 package main.datastructure.queue;
 
-import com.sun.javafx.scene.NodeEventDispatcher;
-
 /**
  * @author: LinKai
  * @time: 2021/1/12-12:11
@@ -30,7 +28,7 @@ public class LinkedQueue<Item> {
      * @return
      */
     public boolean isEmpty() {
-        return size == 0 ? true : false;
+        return size == 0;
     }
 
     /**
@@ -52,14 +50,15 @@ public class LinkedQueue<Item> {
 
     /**
      * 出队
+     *
      * @return
      */
-    public Item pop(){
-        if (isEmpty()){
+    public Item pop() {
+        if (isEmpty()) {
             return null;
         }
         Item item = (Item) head.value;
-        head=head.next;
+        head = head.next;
         size--;
         return item;
     }
