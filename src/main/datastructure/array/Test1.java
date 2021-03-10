@@ -1,6 +1,7 @@
 package main.datastructure.array;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.Random;
 
 /**
@@ -11,7 +12,7 @@ public class Test1 {
     /**
      * 文件位置
      */
-    private static final  String FILE_NAME = "D:\\age.txt";
+    private static final String FILE_NAME = "D:\\age.txt";
 
     /**
      * 总人口数
@@ -21,10 +22,11 @@ public class Test1 {
     /**
      * 数组大小
      */
-    private static final  int ALL_NUMBERS = 181;
+    private static final int ALL_NUMBERS = 181;
 
     /**
      * 生成人口年龄文件
+     *
      * @throws Exception
      */
     public static void generateFile() throws Exception {
@@ -41,12 +43,13 @@ public class Test1 {
 
     /**
      * 获取文件中年龄所对应的人数
+     *
      * @throws FileNotFoundException
      */
     public static void getNumFromAge() throws Exception {
         String str = null;
 
-        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(FILE_NAME), "UTF-8");
+        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(FILE_NAME), StandardCharsets.UTF_8);
 
         //开始时间
         Long start = System.currentTimeMillis();
@@ -58,19 +61,19 @@ public class Test1 {
          * 时间复杂度O(n)
          */
         while ((str = bufferedReader.readLine()) != null) {
-            int age=Integer.valueOf(str);
+            int age = Integer.valueOf(str);
             data[age]++;
             tot++;
         }
-        System.out.println("总数据："+tot);
+        System.out.println("总数据：" + tot);
 
         /**
          * 下标从0开始
          */
         for (int i = 0; i < ALL_NUMBERS; i++) {
-            System.out.println(i+":"+data[i]);
+            System.out.println(i + ":" + data[i]);
         }
-        System.out.println("花费的时间为："+(System.currentTimeMillis()-start)+"ms");
+        System.out.println("花费的时间为：" + (System.currentTimeMillis() - start) + "ms");
     }
 
     public static void main(String[] args) {

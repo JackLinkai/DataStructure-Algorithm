@@ -29,6 +29,7 @@ public class MyArray {
 
     /**
      * 数组初始化
+     *
      * @param size
      */
     public MyArray(int size) {
@@ -51,6 +52,7 @@ public class MyArray {
 
     /**
      * 插入
+     *
      * @param loc
      * @param n
      */
@@ -80,6 +82,7 @@ public class MyArray {
 
     /**
      * 删
+     *
      * @param loc
      */
     public void delete(int loc) {
@@ -96,6 +99,7 @@ public class MyArray {
 
     /**
      * 改
+     *
      * @param loc
      * @param n
      */
@@ -105,6 +109,7 @@ public class MyArray {
 
     /**
      * 查
+     *
      * @param loc
      * @return
      */

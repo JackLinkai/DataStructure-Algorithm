@@ -25,7 +25,7 @@ public class Test2 {
      * 不是则与位置m的数字进行比较，
      * 相同，找到一个重复数字，
      * 不同，交换，重新扫描这个个数字。
-     *
+     * <p>
      * 时间复杂度O(n),空间复杂度O(1)
      *
      * @param nums
@@ -49,9 +49,9 @@ public class Test2 {
 
         int t;
 
-        for (i = 0;i < n;++i) {
+        for (i = 0; i < n; ++i) {
             // 数字m不等于i，执行操作直到等于i
-            while (i!=nums[i]){
+            while (i != nums[i]) {
                 // 相同
                 if (nums[i] == nums[nums[i]]) {
                     // 找到一个重复数字

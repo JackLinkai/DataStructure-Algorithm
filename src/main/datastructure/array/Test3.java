@@ -89,7 +89,7 @@ public class Test3 {
     }
 
     public static void main(String[] args) {
-        int nums[][] = {
+        int[][] nums = {
                 {1, 2, 7, 9},
                 {2, 4, 9, 12},
                 {4, 8, 10, 13},
