@@ -2,6 +2,7 @@ package main.datastructure.list;
 
 /**
  * 单向链表
+ *
  * @author LinKai
  * @time 2020/9/14-21:42
  */
@@ -15,10 +16,11 @@ public class MyLinkedList {
     /**
      *
      */
-    private int size = 0;
+    private final int size = 0;
 
     /**
      * 插入链表的头部O(1)
+     *
      * @param data
      */
     public void insertHead(int data) {
@@ -32,6 +34,7 @@ public class MyLinkedList {
 
     /**
      * 中间插入数据，position是要插入的位置
+     *
      * @param data
      * @param position
      */
@@ -65,6 +68,7 @@ public class MyLinkedList {
 
     /**
      * 删除中间，position是要删除的位置O(n)
+     *
      * @param position
      */
     public void deleteNth(int position) {
@@ -87,6 +91,7 @@ public class MyLinkedList {
 
     /**
      * 查找O(n)
+     *
      * @param position
      */
     public void find(int position) {
@@ -125,6 +130,7 @@ class ListNode {
 
     /**
      * 构造
+     *
      * @param value
      */
     ListNode(int value) {
