@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class MergeSort {
 
     /**
-    临时数组在方法外开辟，不然每一次merge都要开数组
+     * 临时数组在方法外开辟，不然每一次merge都要开数组
      */
     private static int[] temp;
 

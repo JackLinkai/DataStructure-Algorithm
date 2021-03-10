@@ -14,7 +14,7 @@ public class QuickSort {
     }
 
     private static void sort(int low, int high, int[] data) {
-        if (high<=low) {
+        if (high <= low) {
             return;
         }
         int x = data[low], i = low, j = high;
@@ -31,7 +31,7 @@ public class QuickSort {
             }
         }
         data[i] = x;
-        sort(low, i-1, data);
-        sort(i+1, high, data);
+        sort(low, i - 1, data);
+        sort(i + 1, high, data);
     }
 }

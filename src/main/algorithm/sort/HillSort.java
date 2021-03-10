@@ -44,7 +44,7 @@ public class HillSort {
                 int j = i - add;
                 // 4. 如果a[i-add]比当前的数t大，则将a[i-add](a[j])往后移动，再比较a[i-add-add](a[j-add])……
                 // 从尾到头进行比较
-                for (; j >= 0; j-=add) {
+                for (; j >= 0; j -= add) {
                     // 如果这个数大，就往后移，直到到达data正确的位置
                     if (a[j] > t) {
                         a[j + add] = a[j];
