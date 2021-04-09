@@ -40,6 +40,18 @@ public class Backpack {
         for (int i = 0; i < n + 1; i++) {
             System.out.println(Arrays.toString(dp[i]));
         }
+
+        System.out.println("获得的最大价值：" + dp[n][weight]);
+        System.out.println("获得最大价值的物品");
+        for (int i = n; i > 0; i--) {
+            if (dp[i][weight] == dp[i - 1][weight]) {
+                // 说明i物品加不加都一样
+            } else {
+                // 否则就说明该物品可以装
+                System.out.println("物品" + i);
+                weight -= w[i - 1];
+            }
+        }
     }
 
 }
